@@ -1,0 +1,112 @@
+﻿<Window x:Class="DesktopUI.AddDetailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopUI"
+        mc:Ignorable="d"
+        Height="450" Width="800"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Title="{Binding Title,UpdateSourceTrigger=PropertyChanged}">
+
+    <Window.DataContext>
+        <local:AddUserVM/>
+    </Window.DataContext>
+
+    <Grid>
+        <Border CornerRadius="20" Opacity="1">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#263238" Offset="0.9"/>
+                    <GradientStop Color="#424242"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Border BorderThickness="2" BorderBrush="#AA00FF" CornerRadius="20"/>
+        <StackPanel Height="450"
+                    Width="500"
+                    HorizontalAlignment="Left">
+            <TextBlock Style="{StaticResource Titletext}"
+                       Text="First Name"
+                       Width="300"
+                       HorizontalAlignment="Left"
+                       Margin="20 20 0 0"/>
+            <TextBox Text="{Binding Firstname,UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource TBStyle}"
+                     Margin="20 10 0 0"
+                     Grid.Column="1"/>
+            <TextBlock Style="{StaticResource Titletext}"
+                       Text="Last Name"
+                       Width="300"
+                       HorizontalAlignment="Left"
+                       Margin="20 20 0 0"/>
+            <TextBox Text="{Binding Lastname,UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource TBStyle}"
+                     Margin="20 10 0 0"
+                     Grid.Column="1"/>
+            <TextBlock Style="{StaticResource Titletext}"
+                       Text="Date of Birth"
+                       Width="300"
+                       HorizontalAlignment="Left"
+                       Margin="20 20 0 0"/>
+            <TextBox Text="{Binding Dateofbirth,UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource TBStyle}"
+                     Margin="20 10 0 0"
+                     Grid.Column="1"/>
+            <TextBlock Style="{StaticResource Titletext}"
+                       Text="Age"
+                       Width="300"
+                       HorizontalAlignment="Left"
+                       Margin="20 20 0 0"/>
+            <TextBox Text="{Binding Age,UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource TBStyle}"
+                     Margin="20 0 0 0"
+                     Grid.Column="1"/>
+            <TextBlock Style="{StaticResource Titletext}"
+                       Text="GPA"
+                       Width="300"
+                       HorizontalAlignment="Left"
+                       Margin="20 20 0 0"/>
+            <TextBox Text="{Binding Gpa,UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource TBStyle}"
+                     Margin="20 10 0 0"
+                     Grid.Column="1"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical"
+                    Width="300"
+                    HorizontalAlignment="Right">
+            <Button Content="Insert Picture"
+                    Command="{Binding UploadPhotoCommand}"
+                    Style="{StaticResource MixedColorButton}"
+                    Width="150"
+                    Height="40"
+                    Foreground="White"
+                    FontSize="16"
+                    Margin="0 160 0 0"/>
+            <Image Height="40"                               
+                   Width="150" 
+                   VerticalAlignment="Top" 
+                   Margin="0 -300 0 0"
+                   Source="{Binding SelectedImage,UpdateSourceTrigger=PropertyChanged}" />
+            <Button Content="Save"
+                    Command="{Binding SaveCommand}"
+                    Style="{StaticResource MixedColorButton}"
+                    Width="150"
+                    Height="40"
+                    Foreground="White"
+                    FontSize="16"
+                    Margin="0 50"/>
+            <!--<Button Content="Back"
+                    Style="{StaticResource MixedColorButton}"
+                    Width="150"
+                    Height="40"
+                    Foreground="White"
+                    FontSize="16" Click="Button_Click_1"/>-->
+        </StackPanel>
+    </Grid>
+   
+</Window>
